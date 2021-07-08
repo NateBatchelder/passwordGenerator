@@ -21,38 +21,55 @@ if(howLong <8 || howLong >128) {
 	generatePassword();
 }
 else {
-
+// prompts to include values in password
 	var lowerCase = confirm("Would you like to include lower case letters?");
 	var upperCase = confirm("Would you like to include upper case letters?");
 	var numbers = confirm("Would you like to include numbers?");
 	var specialCharacters = confirm("Would you like to include special characters?");
-
+// establishes variable values
 	var uppers = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	var lowers = "abcdefghijklkmnopqrstuvwxyz";
 	var numbers = "0123456789";
 	var specials = "~!@#$%^&*(){}[]<>";
 	var selected = "";
+// conditional checks to see if variables will be included
+	// includes upper case
+	if(upperCase === true) {
+		selected = selected + uppers;
+	}
+	// includes lower case
+	if(lowerCase === true) {
+		selected = selected + lowers;
+	}
+	// includes numbers
+	if(numbers === true) {
+		selected = selected = numbers;
+	}
+	// includes special characters
+	if(specialCharacters === true) {
+		selected = selected = specials;
+	}
+	// conditional if no variables (blank?!) are selected
+	if(
+		upperCase == false &&
+		lowerCase == false &&
+		characters == false &&
+		numbers == false
+	) {
+		// passwords can't be blank! - friendly script to user
+		alert("You must select at least one type of character value to procede.");
+		generatePassword();
+	}
+	// password length
+	for(var i = 0; i < howLong; i++){
+		var randomChar = Math.floor(math.random() * selected.length);
+		finalPass = finalPass + selected[randomChar];
+	}
+	// returns the value of the number of characters theh password will include
+		return finalPass
 
-	
-
-
-
-
+	}
 }
-	var yourNewPassword = '';
-
-	// rewrite this function without CharCode
-	
-	var lowerCase = String.fromCharCode(Math.floor(Math.random() * 26) + 97)
-	var	upperCase = String.fromCharCode(Math.floor(Math.random() * 26) + 65)
-	var number = String.fromCharCode(Math.floor(Math.random() * 10) + 48)
-	var symbol = special[Math.floor(Math.random() * special.length)];
-	// create a loop
-	
-
-	return yourNewPassword;
-}
-
 
 
 // Add event listener to generate button
