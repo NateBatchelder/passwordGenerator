@@ -22,16 +22,22 @@ if(howLong <8 || howLong >128) {
 }
 else {
 
-	var lowerCase =
-	var upperCase =
-	var numbers =
-	var specialCharacters =
+	var lowerCase = confirm("Would you like to include lower case letters?");
+	var upperCase = confirm("Would you like to include upper case letters?");
+	var numbers = confirm("Would you like to include numbers?");
+	var specialCharacters = confirm("Would you like to include special characters?");
 
-	var uppers 
-	var lowers 
-	var numbers 
-	var specials 
+	var uppers = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	var lowers = "abcdefghijklkmnopqrstuvwxyz";
+	var numbers = "0123456789";
+	var specials = "~!@#$%^&*(){}[]<>";
 	var selected = "";
+
+	
+
+
+
+
 }
 	var yourNewPassword = '';
 
