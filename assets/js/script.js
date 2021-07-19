@@ -62,30 +62,30 @@ if (specialCharacters === true) {
 	console.log("Password may include " + newPasswordRequires)
 }
 
-// while (newPasswordRequires == false) {
-// 	newPassword = (prompt(newPasswordIncludes));
+while (newPasswordRequires == false) {
+	if (newPasswordRequires == false) {
+		alert("Password does not meet minimum requirments. You must include at leastone character type, numbers, or speical caracters!");
+		console.log("Password does not meet minimum requirments. You must include at leastone character type, numbers, or speical caracters!");
+		prompt(newPasswordIncludes)
+	}
+	else {
+		console.log("Sucess, you have a new password!");
+		let newPasswordRequires = newPasswordIncludes
 
-// 	if (newPasswordRequirements.includes(lowerCase | upperCase | numbers | specialCharacters) == false) {
-// 		alert("Password does not meet minimum requirments. You must include at leastone character type, numbers, or speical caracters!");
-// 		console.log("Password does not meet minimum requirments. You must include at leastone character type, numbers, or speical caracters!");
-// 	}
-// 	else {
-// 		console.log("Sucess, you have a new password!");
-// 		let newPasswordRequires = newPasswordIncludes
-
-// 	}
-// }
+	}
+}
 
 // password length
 for (var i = 0; i < passwordLength; i++) {
-	var newPasswordActual = newPasswordIncludes.charAt(Math.floor(Math.random() * newPasswordIncludes.passwordLength));
-	finalPassword = password.concat(newPasswordActual);
+	var newPasswordActual = newPasswordIncludes(Math.floor(Math.random() * newPasswordRequires.passwordLength));
+	finalPassword.push(newPasswordRequires)
+	console.log("Here it is:" + newPasswordActual)
 }
-alert("Click 'Generate Password' to receive your new password.");
+// alert("Click 'Generate Password' to receive your new password.");
 
-function displayNewPasswordActual() {
-	document.getElementById("password").textContent = finalPassword;
-}
+// function displayNewPasswordActual() {
+// 	document.getElementById("password").textContent = finalPassword;
+// }
 
 // // Add event listener to generate button
 // generateBtn.addEventListener("click", writePassword);
