@@ -1,81 +1,90 @@
-var lowers = "abcdefghijklkmnopqrstuvwxyz";
-var uppers = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var nums = "0123456789";
-var specials = "!@#$%^&*()_+";
+// var lowers = ["a", "b"];
+// var uppers = ["A", "B", "C", "D"];
+// var nums = "0123456789";
+// var specials = "!@#$%^&*()_+";
 
 var newPassword = [];
 
 // User prompts
 
-var passwordLengthPrompt = "How many characters would you like in your password (8-128 characters)?";
-// TODO add prompts
-
 // Prompt for desired password length
+var passwordLengthPrompt = "How many characters would you like in your password (8-128 characters)?";
+var passwordLength = 0;
 var hasRequestedValidPasswordLength = false;
-varpasswordLength = 0;
 
 while (hasRequestedValidPasswordLength == false) {
-	passwordLength = parseInt(prompt(passwordLength = parseInt(prompt(passwordLenghtPrompt));
+	passwordLength = parseInt(prompt(passwordLengthPrompt));
 
 	// if requested length is invalid, request again
 	if (isNaN(passwordLength)) {
 		alert("Length needs to be a number between 8-128");
 	}
-	else if (passwordLength < 8 | passwordLenght > 128) {
+	else if (passwordLength < 8 | passwordLength > 128) {
 		alert("Your password needs to be between 8-128 characters!");
 	}
 	// valid length, so exit loop
 	else {
 		hasRequestedValidPasswordLength = true;
+		console.log(passwordLength);
 	}
 }
 
-var length = parseInt(prompt("How many characters should be in your password, between 8-128?"))
+// makes a new var 'newPasswordIncludes'
+var newPasswordIncludes = "Click 'Ok' to include the values type would you like in your password:"
 
-if (length < 8) {
-	alert("Your passwords needs to between 8-128 characters!)")
-	prompt("How many characters should be in your password, between 8-128?");
-}
-else if (length > 8); {
+// Test for minimum password requirements
+let newPasswordRequires = []
 
-}
+// conditional check for 'toInclude'
 lowerCase = confirm("Would you like to include lower case letters?");
-upperCase = confirm("Would you like to include upper case letters?");
-numbers = confirm("Would you like to include numbers?");
-specialCharacters = confirm("Would you like to include special characters?");
-
-// conditional checks to see if variables will be included
-
 // includes lower case
 if (lowerCase === true) {
-	newPWRD.push(lowers);
+	// var newPasswordRequires = [];
+	newPasswordRequires.push("a", "b");
+	console.log("Password will include lowers")
 }
+upperCase = confirm("Would you like to include upper case letters?");
 // includes upper case
 if (upperCase === true) {
-	newPWRD.push(uppers);
+	newPasswordRequires.push("A", "B", "C");
+	console.log("Password will include uppers")
 }
+numbers = confirm("Would you like to include numbers?");
 // includes numbers
 if (numbers === true) {
-	newPWRD.push(nums);
+	newPasswordRequires.push("1", "2", "3", "4", "5");
+	console.log("Password will include nums")
 }
-// includes special characters
+specialCharacters = confirm("Would you like to include special characters?");
 if (specialCharacters === true) {
-	newPWRD.push(specials);
+	newPasswordRequires.push("~", "!", "@", "#", "$");
+	console.log("Password will include specials");
+	console.log("Password may include " + newPasswordRequires)
 }
 
-var newPWRDstr = newPWRD.join("");
+// while (newPasswordRequires == false) {
+// 	newPassword = (prompt(newPasswordIncludes));
 
-var password = "";
+// 	if (newPasswordRequirements.includes(lowerCase | upperCase | numbers | specialCharacters) == false) {
+// 		alert("Password does not meet minimum requirments. You must include at leastone character type, numbers, or speical caracters!");
+// 		console.log("Password does not meet minimum requirments. You must include at leastone character type, numbers, or speical caracters!");
+// 	}
+// 	else {
+// 		console.log("Sucess, you have a new password!");
+// 		let newPasswordRequires = newPasswordIncludes
+
+// 	}
+// }
 
 // password length
-for (var i = 0; i < howLong; i++) {
-	var randomChar = newPWRDstr.charAt(Math.floor(Math.random() * newPWRDstr.length));
-	password = password.concat(genChr);
+for (var i = 0; i < passwordLength; i++) {
+	var newPasswordActual = newPasswordIncludes.charAt(Math.floor(Math.random() * newPasswordIncludes.passwordLength));
+	finalPassword = password.concat(newPasswordActual);
 }
 alert("Click 'Generate Password' to receive your new password.");
 
-function generatePWRD() {
-	document.getElementById("password").textContent = password;
+function displayNewPasswordActual() {
+	document.getElementById("password").textContent = finalPassword;
 }
 
 // // Add event listener to generate button
