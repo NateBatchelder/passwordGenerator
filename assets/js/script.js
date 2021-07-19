@@ -1,76 +1,82 @@
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
+var lowers = "abcdefghijklkmnopqrstuvwxyz";
+var uppers = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var nums = "0123456789";
+var specials = "!@#$%^&*()_+";
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+var newPassword = [];
 
-  passwordText.value = password;
+// User prompts
 
+var passwordLengthPrompt = "How many characters would you like in your password (8-128 characters)?";
+// TODO add prompts
+
+// Prompt for desired password length
+var hasRequestedValidPasswordLength = false;
+varpasswordLength = 0;
+
+while (hasRequestedValidPasswordLength == false) {
+	passwordLength = parseInt(prompt(passwordLength = parseInt(prompt(passwordLenghtPrompt));
+
+	// if requested length is invalid, request again
+	if (isNaN(passwordLength)) {
+		alert("Length needs to be a number between 8-128");
+	}
+	else if (passwordLength < 8 | passwordLenght > 128) {
+		alert("Your password needs to be between 8-128 characters!");
+	}
+	// valid length, so exit loop
+	else {
+		hasRequestedValidPasswordLength = true;
+	}
 }
 
+var length = parseInt(prompt("How many characters should be in your password, between 8-128?"))
 
-// creates the password given the selected variables
-function generatePassword() {
-	var finalPass = "";
-	var howLong = prompt("Between 8 and 128, how long will your password be?", "(Pick a number between 8 and 128.)");
-	
-if(howLong <8 || howLong >128) {
-	alert("Please pick a number between 8 and 128.")
-	generatePassword();
+if (length < 8) {
+	alert("Your passwords needs to between 8-128 characters!)")
+	prompt("How many characters should be in your password, between 8-128?");
 }
-else {
-// prompts to include values in password
-	var lowerCase = confirm("Would you like to include lower case letters?");
-	var upperCase = confirm("Would you like to include upper case letters?");
-	var numbers = confirm("Would you like to include numbers?");
-	var specialCharacters = confirm("Would you like to include special characters?");
-// establishes variable values
-	var uppers = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	var lowers = "abcdefghijklkmnopqrstuvwxyz";
-	var numbers = "0123456789";
-	var specials = "~!@#$%^&*(){}[]<>";
-	var selected = "";
+else if (length > 8); {
+
+}
+lowerCase = confirm("Would you like to include lower case letters?");
+upperCase = confirm("Would you like to include upper case letters?");
+numbers = confirm("Would you like to include numbers?");
+specialCharacters = confirm("Would you like to include special characters?");
+
 // conditional checks to see if variables will be included
-	// includes upper case
-	if(upperCase === true) {
-		selected = selected + uppers;
-	}
-	// includes lower case
-	if(lowerCase === true) {
-		selected = selected + lowers;
-	}
-	// includes numbers
-	if(numbers === true) {
-		selected = selected = numbers;
-	}
-	// includes special characters
-	if(specialCharacters === true) {
-		selected = selected = specials;
-	}
-	// conditional if no variables (blank?!) are selected
-	if(
-		upperCase == false &&
-		lowerCase == false &&
-		characters == false &&
-		numbers == false
-	) {
-		// passwords can't be blank! - friendly script to user
-		alert("You must select at least one type of character value to procede.");
-		generatePassword();
-	}
-	// password length
-	for(var i = 0; i < howLong; i++){
-		var randomChar = Math.floor(math.random() * selected.length);
-		finalPass = finalPass + selected[randomChar];
-	}
-	// returns the value of the number of characters theh password will include
-		return finalPass
 
-	}
+// includes lower case
+if (lowerCase === true) {
+	newPWRD.push(lowers);
+}
+// includes upper case
+if (upperCase === true) {
+	newPWRD.push(uppers);
+}
+// includes numbers
+if (numbers === true) {
+	newPWRD.push(nums);
+}
+// includes special characters
+if (specialCharacters === true) {
+	newPWRD.push(specials);
 }
 
+var newPWRDstr = newPWRD.join("");
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+var password = "";
+
+// password length
+for (var i = 0; i < howLong; i++) {
+	var randomChar = newPWRDstr.charAt(Math.floor(Math.random() * newPWRDstr.length));
+	password = password.concat(genChr);
+}
+alert("Click 'Generate Password' to receive your new password.");
+
+function generatePWRD() {
+	document.getElementById("password").textContent = password;
+}
+
+// // Add event listener to generate button
+// generateBtn.addEventListener("click", writePassword);
