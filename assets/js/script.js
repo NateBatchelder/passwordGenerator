@@ -1,7 +1,7 @@
-// var lowers = ["a", "b"];
-// var uppers = ["A", "B", "C", "D"];
-// var nums = "0123456789";
-// var specials = "!@#$%^&*()_+";
+var lowers = "abcdefghijklmnopqrstuvwxyz";
+var uppers = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var nums = "1234567890";
+var specials = "!@#$%^&*()_+";
 
 function newPasswordFunction() {
 
@@ -31,56 +31,57 @@ function newPasswordFunction() {
 		}
 	}
 
-	// makes a new var 'newPasswordIncludes'
-	var newPasswordIncludesPrompt = "Click 'Ok' to include the values type would you like in your password:"
-
 	// Test for minimum password requirements
-	let newPasswordRequires = []
+	let newPasswordPossibleCharacters = []
 
-	while (newPasswordRequires.length === 0) {
+	while (newPasswordPossibleCharacters.length === 0) {
 		// conditional check for 'toInclude'
 		lowerCase = confirm("Would you like to include lower case letters?");
 		// includes lower case
 		if (lowerCase === true) {
-			// var newPasswordRequires = [];
-			newPasswordRequires.push("a", "b");
+			// includes lowers
+			newPasswordPossibleCharacters.push(lowers);
 			console.log("Password will include lowers")
 		}
 		upperCase = confirm("Would you like to include upper case letters?");
-		// includes upper case
+		// includes uppers
 		if (upperCase === true) {
-			newPasswordRequires.push("A", "B", "C");
+			newPasswordPossibleCharacters.push(uppers);
 			console.log("Password will include uppers")
 		}
 		numbers = confirm("Would you like to include numbers?");
-		// includes numbers
+		// includes nums
 		if (numbers === true) {
-			newPasswordRequires.push("1", "2", "3", "4", "5");
+			newPasswordPossibleCharacters.push(nums);
 			console.log("Password will include nums")
 		}
 		specialCharacters = confirm("Would you like to include special characters?");
+		// includes specials
 		if (specialCharacters === true) {
-			newPasswordRequires.push("~", "!", "@", "#", "$");
+			newPasswordPossibleCharacters.push(specials);
 			console.log("Password will include specials");
-			console.log("Password may include " + newPasswordRequires)
 		}
-		if (newPasswordRequires.length === 0) {
+		if (newPasswordPossibleCharacters.length === 0) {
 			alert("Password does not meet minimum requirments. You must include at leastone character type, numbers, or speical caracters!");
 			console.log("Password does not meet minimum requirments. You must include at leastone character type, numbers, or speical caracters!");
 		}
 	}
-	//TODO loop does not return to line 33ish so that values can be included
+	newPasswordPossibleCharacters = newPasswordPossibleCharacters.join('');
+
+	console.log(newPasswordPossibleCharacters);
 
 	var finalPassword = [];
 
 	// password length
 	for (var i = 0; i < passwordLength; i++) {
-		var newPasswordActual = newPasswordRequires[Math.floor(Math.random() * newPasswordRequires.passwordLength)];
-		finalPassword.push(newPasswordActual)
+		let randomIndex = Math.floor(Math.random() * newPasswordPossibleCharacters.length);
+
+		let newPasswordCharacter = newPasswordPossibleCharacters[randomIndex];
+
+		finalPassword.push(newPasswordCharacter)
 	}
 
+	finalPassword = finalPassword.join('');
+
+	document.getElementById("password").innerHTML = finalPassword;
 }
-// Add event listener to generate button
-let btn = document.createElement("generateBtn");
-btn.innerHTML = "Generate Password";
-document.body.appendChild(btn);
