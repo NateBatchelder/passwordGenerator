@@ -1,7 +1,7 @@
 var lowers = "abcdefghijklmnopqrstuvwxyz";
 var uppers = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var nums = "1234567890";
-var specials = "!@#$%^&*()_+";
+var specials = " !#$%&'()*+,-./:;<=>?@[\]^_`{|}~\"";
 
 function newPasswordFunction() {
 
